@@ -1,0 +1,137 @@
+\documentclass[10pt, twoside]{report}
+\usepackage{xr}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+%header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO]{\footnotesize \leftmark}
+\fancyhead[LE]{\footnotesize \rightmark}
+
+%for table
+\usepackage{multirow}
+
+%for rotating table 
+\usepackage{pdflscape}
+\usepackage{rotating}
+
+%for long table (span more than 1 page)
+\usepackage{longtable}
+
+%ASOC related paper 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fixltx2e}
+\usepackage{diagbox}
+\usepackage{makecell}
+\usepackage{algorithm,algpseudocode}
+\usepackage[flushleft]{threeparttable}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage{colortbl}
+\usepackage[table, xcdraw]{xcolor}
+\xdefinecolor{gray95}{gray}{0.45}
+\xdefinecolor{gray25}{gray}{0.85}
+\xdefinecolor{gray50}{gray}{0.65}
+\usepackage{todonotes}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{epstopdf}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath} \DeclareMathOperator*{\argmax}{\arg\!\max} \DeclareMathOperator*{\argmin}{\arg\!\min}
+
+%Nomenclature
+\usepackage{nomencl}
+\makenomenclature
+
+%appendix
+\usepackage[toc,page]{appendix}
+
+\makeindex
+
+%\usepackage[table,xcdraw]{xcolor}
+%to write euro symbol
+\usepackage{eurosym}
+
+%use for subsubsection
+\setcounter{secnumdepth}{3}
+
+
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%ASOC related paper 
+
+
+\usepackage{enumitem}
+
+\usepackage[numbers]{natbib}
+
+
+\title{
+	{Ahsanullah University of Science and Technology}\\
+	{\large Department of Computer Science and Engineering}\\
+	{\includegraphics{figures/AUST_logo2.png}
+	}\\
+	{\textbf{``BIPONEE"-An E-Commerce Web Application }
+	}
+	}
+
+
+\author{Md. Toufiqul Islam 15.02.04.097\\
+Susmoy Chakraborty  15.02.04.114\\
+Nigar Sultana 15.01.04.002\\
+Ovi Nazmul 13.02.04.081
+}
+
+\date{23 October 2018}
+
+
+\begin{document}
+
+
+\maketitle
+\pagenumbering{roman}
+
+
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\input{introduction}
+
+\newpage
+\chapter{Information Gathering}
+\input{information_gathering}
+
+\chapter{Data Flow Diagram and Use case Diagram}
+\input{dfd_use_case}
+
+\chapter{Entity Relationship Diagram and Class Diagram}
+\input{erd_class}
+
+\chapter{Discussion}
+\input{discussion}
+
+\begin{appendices}
+  \chapter{Implementation}
+  \input{implementation.tex}
+\end{appendices}
+
+\bibliography{references}
+\bibliographystyle{IEEEtranSN}
+%\bibliography{}
+\end{document}

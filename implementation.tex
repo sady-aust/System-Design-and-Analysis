@@ -1,0 +1,1498 @@
+\section{Model}
+\subsection{AdminC.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models
+{
+    public class AdminC
+    {
+        public int ID { get; set; }
+        public String Email { get; set; }
+        public String Password { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+
+        public AdminC(int iD, String email, String password,
+        String firstName, String lastName)
+        {
+            ID = iD;
+            Email = email;
+            Password = password;
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public AdminC(String email, String password,
+        String firstName, String lastName)
+        {
+            Email = email;
+            Password = password;
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public AdminC()
+        {
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+\subsection{UserC.cs}
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models
+{
+    public class UserC
+    {
+        public int Id { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public String Email { get; set; }
+        public String Password { get; set; }
+
+        public UserC(int id, string firstName, 
+        string lastName, string email, string password)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+        }
+
+        public UserC( string firstName,string lastName, 
+        string email, string password)
+        {
+           
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+        }
+
+
+    }
+}
+\end{lstlisting}
+\newpage
+
+\subsection{CartItemC.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models
+{
+    public class CartItemC
+    {
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public String ProductImage { get; set; }
+        public String ProductName { get; set; }
+        public String ProductSize { get; set; }
+        public Double UnitPrice { get; set; }
+        public int Qty { get; set; }
+        public Double Subtotal { get; set; }
+
+        public CartItemC(int orderId,int productId, 
+        string productImage, string productName, 
+        string productSize,double unitPrice, int qty, double subtotal)
+        {
+            OrderId = orderId;
+            ProductId = productId;
+            ProductImage = productImage;
+            ProductName = productName;
+            ProductSize = productSize;
+            UnitPrice = unitPrice;
+            Qty = qty;
+            Subtotal = subtotal;
+        }
+        public CartItemC( int productId, string productImage, 
+        string productName, string productSize, 
+        double unitPrice, int qty, double subtotal)
+        {
+            
+            ProductId = productId;
+            ProductImage = productImage;
+            ProductName = productName;
+            ProductSize = productSize;
+            UnitPrice = unitPrice;
+            Qty = qty;
+            Subtotal = subtotal;
+        }
+
+
+    }
+}
+
+\end{lstlisting}
+\newpage
+
+\subsection{OrderC.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models
+{
+    public class OrderC
+    {
+        public int OrderId { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public String Phone { get; set; }
+        public String Address { get; set; }
+        public String State { get; set; }
+        public String City { get; set; }
+        public int UserId { get; set; }
+        public String PaymentMethod { get; set; }
+        public Double Total { get; set; }
+
+       public OrderC(int orderId, string firstName,
+       string lastName, string phone,
+       string address, string state,
+       string city, int userId,
+       string paymentMethod, double total)
+        {
+            OrderId = orderId;
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+            Address = address;
+            State = state;
+            City = city;
+            UserId = userId;
+            PaymentMethod = paymentMethod;
+            Total = total;
+        }
+        public OrderC(string firstName, string lastName,
+        string phone, string address,
+        string state, string city, int userId, 
+        string paymentMethod, double total)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+            Address = address;
+            State = state;
+            City = city;
+            UserId = userId;
+            PaymentMethod = paymentMethod;
+            Total = total;
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+
+\subsection {ClothingProduct.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models.Products
+{
+    public class ClothingProduct : Product
+    {
+        public int LCount { get; set; }
+        public int MCount { get; set; }
+        public int XLCount { get; set; }
+        public int XXLCount { get; set; }
+
+        public ClothingProduct(String productName,
+        String productCode, int sectionId,
+        Double price,String category,
+        String description,
+        String imageLink,String brandName,
+            int lCount,int mCount,int xlCount,
+            int xxlCount) 
+            :base(productName,
+            productCode,sectionId,price,
+            category,description,imageLink,
+            brandName)
+        {
+            this.LCount = lCount;
+            this.MCount = mCount;
+            this.XLCount = xlCount;
+            this.XXLCount = xxlCount;
+        }
+
+        public ClothingProduct(int productId,
+        String productName, String productCode, 
+        int sectionId, Double price, 
+        String category, 
+        String description, 
+        String imageLink,
+        String brandName,
+           int lCount, int mCount, 
+           int xlCount, int xxlCount) 
+           : base(productId,
+           productName, 
+           productCode, sectionId, price, 
+           category, 
+           description, imageLink, brandName)
+        {
+            this.LCount = lCount;
+            this.MCount = mCount;
+            this.XLCount = xlCount;
+            this.XXLCount = xxlCount;
+        }
+
+        public ClothingProduct():base()
+        {
+        }
+    }
+}
+
+\end{lstlisting}
+\newpage
+
+\subsection{DailyNeedProduct.cs}
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models.Products
+{
+    public class DailyNeedProduct : Product
+    {
+       public int Quantity { get; set; }
+        public DailyNeedProduct(string productName, 
+        string productCode, int sectionId,
+        double price,int quntity ,string category, 
+        string description, string imageLink, 
+        string brandName) : base(productName, 
+        productCode, sectionId, price, category, 
+        description, imageLink, brandName)
+        {
+            this.Quantity = quntity;
+        }
+
+        public DailyNeedProduct(int id,
+        string productName, string productCode, 
+        int sectionId, 
+        double price, int quntity, string category, 
+        string description, 
+        string imageLink, 
+        string brandName) : base(id,productName, 
+        productCode, sectionId, price, category, 
+        description, imageLink, brandName)
+        {
+            this.Quantity = quntity;
+        }
+
+        public DailyNeedProduct() : base()
+        {
+
+        }
+    }
+}
+
+
+\end{lstlisting}
+
+\newpage
+
+\subsection{ElectronicsProduct.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models.Products
+{
+    public class ElectronicsProduct : Product
+
+    {
+
+        public int Quantity { get; set; }
+        public ElectronicsProduct(string productName, 
+        string productCode, int sectionId, double price, 
+        int quantity,string category,
+        string description,
+        string imageLink,
+        string brandName) : base(productName, productCode,
+        sectionId, price, category,
+        description, imageLink, brandName)
+        {
+            this.Quantity = quantity;
+        }
+        public ElectronicsProduct(int id,string productName, 
+        string productCode, int sectionId,
+        double price, int quantity, string category, 
+        string description, string imageLink, 
+        string brandName) : base(id,
+        productName, productCode, 
+        sectionId, price, category, 
+        description, imageLink, brandName)
+        {
+            this.Quantity = quantity;
+        }
+
+        public ElectronicsProduct():base()
+        {
+        }
+    }
+}
+
+
+\end{lstlisting}
+
+\subsection{MobileProduct.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models.Products
+{
+    public class MobileProduct : Product
+    {
+        public int Quantity { get; set; }
+        public MobileProduct(string productName, 
+        string productCode, int sectionId, 
+        double price, int quantity,
+        string category, string description, 
+        string imageLink, string brandName) : 
+        base(productName, productCode, 
+        sectionId, price, category, 
+        description, imageLink, brandName)
+        {
+            this.Quantity = quantity;
+        }
+        public MobileProduct(int id,string 
+        productName, string productCode, 
+        int sectionId, double price, 
+        int quantity, string category, 
+        string description, 
+        string imageLink, 
+        string brandName) : base(id,productName, 
+        productCode, sectionId, price, category, 
+        description, 
+        imageLink, brandName)
+        {
+            this.Quantity = quantity;
+        }
+
+
+        public MobileProduct() : base()
+        {
+
+        }
+    }
+}
+
+\end{lstlisting}
+
+\newpage
+
+\subsection{Product.cs}
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Biponee.Models.Products
+{
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public String ProductName { get; set; }
+        public String ProductCode { get; set; }
+        public int SectionId { get; set; }
+        public Double Price { get; set; }
+        public String Category { get; set; }
+        public String Description { get; set; }
+        public String ImageLink { get; set; }
+        public String BrandName { get; set; }
+
+        public Product(string productName, 
+        string productCode, int sectionId, 
+        Double price, string category, 
+        string description, 
+        string imageLink, string brandName)
+        {
+            ProductName = productName;
+            ProductCode = productCode;
+            SectionId = sectionId;
+            Price = price;
+            Category = category;
+            Description = description;
+            ImageLink = imageLink;
+            BrandName = brandName;
+        }
+
+        public Product(int productId,
+        string productName, 
+        string productCode, int sectionId, 
+        Double price, string category, string description, 
+        string imageLink, string brandName)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            ProductCode = productCode;
+            SectionId = sectionId;
+            Price = price;
+            Category = category;
+            Description = description;
+            ImageLink = imageLink;
+            BrandName = brandName;
+        }
+
+        public Product()
+        {
+        }
+    }
+}
+
+
+\end{lstlisting}
+\newpage
+
+\section{Database}
+
+\subsection{AdminGetway.cs}
+
+\begin{lstlisting}
+
+using Biponee.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+
+namespace Biponee.DLL
+{
+    public class AdminGetway
+    {
+        String connectionString = WebConfigurationManager.ConnectionStrings
+        ["biponeeDbConnectioon"].ConnectionString;
+
+        public List<AdminC> getAdminByEmailAnsPassword
+        (String email, String Password)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM admins
+            WHERE Email = '" + email + "'
+            AND Password = '" + Password + "'";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<AdminC> list = new List<AdminC>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["AdminID"]);
+                String adminEmail = reader["Email"].ToString();
+                String password = reader["Password"].ToString();
+                String firstName = reader["FirstName"].ToString();
+                String lastName = reader["LastName"].ToString();
+
+               list.Add( new AdminC(id, adminEmail, password, firstName, lastName));
+            }
+
+            return list;
+        }
+
+        public List<AdminC> getAdminById(int adminId)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM admins 
+            WHERE AdminID = " + adminId;
+
+            SqlCommand command = new 
+            SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<AdminC> list = new List<AdminC>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["AdminID"]);
+                String adminEmail = reader["Email"].ToString();
+                String password = reader["Password"].ToString();
+                String firstName = reader["FirstName"].ToString();
+                String lastName = reader["LastName"].ToString();
+
+                list.Add(new AdminC(id, adminEmail, 
+                password, firstName, lastName));
+            }
+
+            return list;
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{OrderGetway.cs}
+
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using Biponee.Models;
+using System.Web;
+using System.Web.Configuration;
+using System.Data.SqlClient;
+
+namespace Biponee.DAL
+{
+    public class OrderGetway
+    {
+        String connectionString =
+        WebConfigurationManager.ConnectionStrings
+        ["biponeeDbConnectioon"].ConnectionString;
+
+        public int InsertOrder(OrderC order)
+        {
+            SqlConnection connection = new
+            SqlConnection(connectionString);
+            String Query = "INSERT 
+            INTO orders VALUES ('" + order.FirstName + "','" 
+            + order.LastName + "','" + order.Phone + "','" + 
+            order.Address + "','" + order.State + "','" +
+            order.City + "'," + 
+            order.UserId + ",'" + 
+            order.PaymentMethod + "'," + order.Total + ")";
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{ProductGetway.cs}
+
+\begin{lstlisting}
+using Biponee.Models;
+using Biponee.Models.Products;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+
+namespace Biponee.DLL
+{
+    public class ProductGetway
+    {
+        String connectionString = WebConfigurationManager.
+        ConnectionStrings["biponeeDbConnectioon"].ConnectionString;
+
+        public int insertClothingProduct(ClothingProduct product)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "INSERT INTO products 
+            VALUES ('" + product.ProductName + "','" + 
+            product.ProductCode + "'," + product.SectionId + "," 
+            + product.Price + ",'" + product.Category + "','" 
+            + product.Description + "','" + product.ImageLink + "'," + 
+            product.LCount + "," + product.MCount + "," + 
+            product.XLCount + "," + product.XXLCount+",null" + ",'" + 
+            product.BrandName + "')";
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+        public int insertElectronicsProduct
+        (ElectronicsProduct product)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "INSERT INTO products 
+            VALUES ('" + 
+            product.ProductName + "','" + product.ProductCode + "'," 
+            + product.SectionId + "," + product.Price + ",'" 
+            + product.Category + 
+            "','" + product.Description + "','" + 
+            product.ImageLink + "',null,null,null,null,"  + 
+            product.Quantity + ",'" + product.BrandName + "')";
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+        public int insertDailyNeedsProduct
+        (DailyNeedProduct product)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "INSERT INTO products VALUES 
+            ('" + product.ProductName + "','" + 
+            product.ProductCode + "'," + product.SectionId + "," + 
+            product.Price + ",'" + product.Category + "','" + 
+            product.Description + "','" + product.ImageLink + "',
+            null,null,null,null," + product.Quantity + ",'" +
+            product.BrandName + "')";
+            SqlCommand command = new 
+            SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+        public int insertMobileProduct
+        (MobileProduct product)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "INSERT INTO products VALUES 
+            ('" + product.ProductName + "','" + product.ProductCode 
+            + "'," + product.SectionId + "," + product.Price + ",'" 
+            + product.Category + 
+            "','" + product.Description + "','" 
+            + product.ImageLink + "',
+            null,null,null,null," 
+            + product.Quantity + ",'" + 
+            product.BrandName + "')";
+            SqlCommand command = new SqlCommand
+            (Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+
+        public List<ClothingProduct> getAllClothingProduct()
+        {
+            SqlConnection connection =
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 1";
+
+            SqlCommand command = new 
+            SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+          
+                List<ClothingProduct> list = 
+                new List<ClothingProduct>();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["ProductId"];
+                    String name = reader["ProductName"].ToString();
+                    String code = reader["ProductCode"].ToString();
+                    int secId = (int)reader["SectionId"];
+                    Double price = Convert.ToDouble(reader["Price"].
+                    ToString());
+                    String category = reader["Category"].ToString();
+                    String description = reader["Description"].ToString();
+                    String imgLink = reader["ImageLink"].ToString();
+                    int lCount = (int)reader["LCount"];
+                    int mCount = (int)reader["MCount"];
+                    int xlCount = (int)reader["XLCount"];
+                    int xxlCount = (int)reader["XXLCount"];
+                    String brandName = reader["BrandName"].ToString();
+
+                list.Add(new ClothingProduct(id,name, code, 
+                secId, price, category, description, 
+                imgLink, brandName, lCount, 
+                mCount, xlCount,xxlCount));
+                }
+
+                return list;
+            }
+
+        public List<Product> getAllProduct(String pCode)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE ProductCode ='"+ pCode + "'";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            List<Product> list = new List<Product>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"].ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int lCount = (int)reader["LCount"];
+                int mCount = (int)reader["MCount"];
+                int xlCount = (int)reader["XLCount"];
+                int xxlCount = (int)reader["XXLCount"];
+                String brandName = reader["BrandName"].ToString();
+
+                list.Add(new Product(id, name, code,
+                secId, price, category, 
+                description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+
+        public List<ElectronicsProduct> getElectronicProduct()
+        {
+            SqlConnection connection = new
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 2";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<ElectronicsProduct> list =
+            new List<ElectronicsProduct>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"].ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new ElectronicsProduct(id,name, code,
+                secId, price, Quantity, category,
+                description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public List<ElectronicsProduct> getElectronicProduct
+        (String productCode)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 2 AND 
+            ProductCode='"+productCode+"'";
+
+            SqlCommand command =
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+
+            List<ElectronicsProduct> list = new 
+            List<ElectronicsProduct>();
+
+            while (reader.Read())
+            {
+
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = 
+                Convert.ToDouble(reader["Price"].ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new ElectronicsProduct(id,name, 
+                code, secId, price, Quantity, 
+                category, description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public List<DailyNeedProduct> getDailyNeedProduct
+        (String productCode)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 3 AND ProductCode='" + productCode + "'";
+
+            SqlCommand command = new
+            SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<DailyNeedProduct> list =
+            new List<DailyNeedProduct>();
+
+            while (reader.Read())
+            {
+
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"]
+                .ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"]
+                .ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new DailyNeedProduct(id, name, code, 
+                secId, price, Quantity, 
+                category, description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public List<MobileProduct> getMobileProduct
+        (String productCode)
+        {
+            SqlConnection connection =
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 4 AND ProductCode='" + 
+            productCode + "'";
+
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<MobileProduct> list = 
+            new List<MobileProduct>();
+
+            while (reader.Read())
+            {
+
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"]
+                .ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"]
+                .ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new MobileProduct(id, name, code, secId, 
+                price, Quantity, category, description, 
+                imgLink, brandName));
+            }
+
+            return list;
+        }
+
+
+        public List<DailyNeedProduct> getADailyNeedProduct()
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 3";
+
+            SqlCommand command = new 
+            SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<DailyNeedProduct> list = 
+            new List<DailyNeedProduct>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"]
+                .ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new DailyNeedProduct(id,name, code,
+                secId, price, Quantity, 
+                category, description, 
+                imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public List<DailyNeedProduct> getADailyNeedProduct
+        (String productCode)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM 
+            products WHERE SectionId = 3 
+            AND ProductCode = '"+ productCode+"'";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<DailyNeedProduct> list = new List<DailyNeedProduct>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"].
+                ToString());
+                String category = reader["Category"].
+                ToString();
+                String description = reader["Description"].
+                ToString();
+                String imgLink = reader["ImageLink"]
+                .ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new DailyNeedProduct(id,name, code,
+                secId, price, Quantity, category, 
+                description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public List<MobileProduct> getAllMobileProduct()
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 4";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<MobileProduct> list = new List<MobileProduct>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"]
+                .ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new MobileProduct(id,name, code, 
+                secId, price, Quantity, 
+                category, description, 
+                imgLink, brandName));
+            }
+
+            return list;
+        }
+
+
+        public List<MobileProduct> getAMobileProduct(String productCode)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE SectionId = 4 AND 
+            ProductCode ='"+productCode+"'";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+
+            List<MobileProduct> list = new List<MobileProduct>();
+
+            while (reader.Read())
+            {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = 
+                Convert.ToDouble(reader["Price"].ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int Quantity = (int)reader["Quantity"];
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new MobileProduct(id,name, code,
+                secId, price, Quantity, category, 
+                description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+
+
+        public List<ClothingProduct> 
+        getaClothingProduct(String productCode)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE ProductCode ='" + productCode + "'";
+
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+          
+                List<ClothingProduct> list = 
+                new List<ClothingProduct>();
+
+                while (reader.Read())
+                {
+                int id = (int)reader["ProductId"];
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                Double price = Convert.ToDouble(reader["Price"]
+                .ToString());
+                String category = reader["Category"]
+                .ToString();
+                String description =
+                reader["Description"].ToString();
+                String imgLink = reader["ImageLink"].ToString();
+                int lCount = (int)reader["LCount"];
+                int mCount = (int)reader["MCount"];
+                int xlCount = (int)reader["XLCount"];
+                int xxlCount = (int)reader["XXLCount"];
+                String brandName = reader["BrandName"].ToString();
+
+                list.Add(new ClothingProduct(id,name, code, 
+                secId, price, category,
+                description, imgLink,
+                brandName, lCount, mCount, 
+                xlCount, xxlCount));
+                }
+
+                return list;
+            
+        }
+       
+
+
+      
+
+        public List<Product> GetAllProduct()
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products";
+            SqlCommand command =
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+            List<Product> list =
+            new List<Product>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ProductId"]);
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                double price =Convert.ToDouble(reader["Price"].
+                ToString());
+                String category = reader["Category"].ToString();
+                String description = reader["Description"].
+                ToString();
+                String imgLink = reader["ImageLink"].
+                ToString();
+                String lCount = reader["LCount"].ToString();
+                String mCount = reader["MCount"].ToString();
+                String xlCount = reader["XLCount"].ToString();
+                String xxlCount = reader["XXLCount"].ToString();
+                String quantiy = reader["Quantity"].ToString();
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new Product(id,name,code,
+                secId,price,category,
+                description,imgLink,brandName));
+            }
+
+            return list;
+        }
+        public List<Product> GetAllProduct(int pid)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM products 
+            WHERE ProductId ="+ pid;
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+            List<Product> list = 
+            new List<Product>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["ProductId"]);
+                String name = reader["ProductName"].ToString();
+                String code = reader["ProductCode"].ToString();
+                int secId = (int)reader["SectionId"];
+                double price = Convert.ToDouble(reader["Price"].
+                ToString());
+                String category = reader["Category"].
+                ToString();
+                String description = reader["Description"]
+                .ToString();
+                String imgLink = reader["ImageLink"]
+                .ToString();
+                String lCount = reader["LCount"].ToString();
+                String mCount = reader["MCount"].ToString();
+                String xlCount = reader["XLCount"].ToString();
+                String xxlCount = reader["XXLCount"].ToString();
+                String quantiy = reader["Quantity"].ToString();
+                String brandName = reader["BrandName"].ToString();
+                list.Add(new Product(id, name, code, 
+                secId, price, category, 
+                description, imgLink, brandName));
+            }
+
+            return list;
+        }
+
+        public int UpdateProductInfo(ClothingProduct product)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "UPDATE products SET 
+            productName = '" + product.ProductName + "',
+            ProductCode='" + product.ProductCode +
+                "',Price=" + product.Price + ",Category ='" + 
+                product.Category + "',Description='" 
+                + product.Description + "',LCount=" 
+                + product.LCount + ",MCount=" +
+                product.MCount + ",XLCount=" + product.XLCount + "
+                ,XXLCount=" + product.XXLCount + ",BrandName='" 
+                + product.BrandName + "' WHERE ProductId="
+                +product.ProductId;
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+
+        }
+
+        public int UpdateProductInfo
+        (ElectronicsProduct product)
+        {
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "UPDATE products 
+            SET productName = '" + product.ProductName + "'
+            ,ProductCode='" + product.ProductCode +
+                "',Price=" + product.Price + ",Category ='" 
+                + product.Category + "',Description='" + 
+                product.Description + "',Quantity=" +
+                product.Quantity +
+               ",BrandName='" + product.BrandName + "' 
+               WHERE ProductId=" + product.ProductId;
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+        public int UpdateProductInfo
+        (DailyNeedProduct product)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "UPDATE products 
+            SET productName = '" + 
+            product.ProductName + "',ProductCode='" + product.ProductCode +
+                "',Price=" + product.Price + ",Category ='" + 
+                product.Category + "',Description='" + 
+                product.Description + "',Quantity=" 
+                + product.Quantity +
+               ",BrandName='" + product.BrandName + 
+               "' WHERE ProductId=" + product.ProductId;
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+        public int UpdateProductInfo
+        (MobileProduct product)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "UPDATE products SET productName = '" +
+            product.ProductName + "',ProductCode='" + 
+            product.ProductCode +
+                "',Price=" + product.Price + ",Category ='" + 
+                product.Category + "',Description='" + 
+                product.Description + "',Quantity=" + 
+                product.Quantity +
+               ",BrandName='" + product.BrandName + "'
+               WHERE ProductId=" + product.ProductId;
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+
+            return res;
+        }
+
+        public int DeleteProduct(int productId)
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "DELETE 
+            FROM products WHERE ProductId=" + productId;
+            SqlCommand command = new SqlCommand(Query,connection);
+            connection.Open();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+            return res;
+        }
+
+       
+
+       
+    }
+}
+\end{lstlisting}
+
+
+\newpage
+
+
+\subsection{SectionGetway.cs}
+\begin{lstlisting}
+using Biponee.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+
+namespace Biponee.DLL
+{
+    public class SectionGetway
+    {
+        String connectionString = WebConfigurationManager.
+        ConnectionStrings["biponeeDbConnectioon"]
+        .ConnectionString;
+        public List<SectionC> getAllSections()
+        {
+            SqlConnection connection = 
+            new SqlConnection(connectionString);
+            String Query = "SELECT * FROM sections";
+
+            SqlCommand command = new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<SectionC> list = new List<SectionC>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["SectionID"]);
+                String name = reader["SectionName"].ToString();
+               
+
+                list.Add(new SectionC(id,name));
+            }
+
+            return list;
+        }
+    }
+}
+
+\end{lstlisting}
+
+\newpage
+
+\subsection{UserGetway.cs}
+\begin{lstlisting}
+
+using Biponee.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+
+namespace Biponee.DLL
+{
+    public class UserGetway
+    {
+        String connectionString = WebConfigurationManager.
+        ConnectionStrings["biponeeDbConnectioon"].ConnectionString;
+        public int InsertUser(UserC user)
+        {
+           
+          
+                SqlConnection connection = 
+                new SqlConnection(connectionString);
+                String Query = "INSERT INTO users VALUES 
+                ('" + user.FirstName + "','" + user.LastName + "','" + 
+                user.Email + "','" + user.Password +"')";
+                SqlCommand command = new SqlCommand(Query, connection);
+                connection.Open();
+                
+                int res = command.ExecuteNonQuery();
+                connection.Close();
+                return res;
+            
+        }
+
+        public List<UserC> getUser(String email,String password)
+        {
+
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM 
+            users WHERE Email = '" + email + "' 
+            AND Password = '" + password + "'";
+
+            SqlCommand command = 
+            new SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+            List<UserC> list = new List<UserC>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["UserId"]);
+                String firstName = reader["FirstName"].ToString();
+                String lastName = reader["LastName"].ToString();
+                String Email = reader["Email"].ToString();
+                String Password = reader["Password"].ToString();
+
+                list.Add(new UserC(id, firstName, 
+                lastName, Email, Password));
+            }
+
+            return list;
+        }
+
+        public List<UserC> getUser(String email)
+        {
+
+            SqlConnection connection = new 
+            SqlConnection(connectionString);
+            String Query = "SELECT * FROM users
+            WHERE Email = '" + email + "'";
+
+            SqlCommand command = new 
+            SqlCommand(Query, connection);
+            connection.Open();
+            SqlDataReader reader = 
+            command.ExecuteReader();
+
+            List<UserC> list = new List<UserC>();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["UserId"]);
+                String firstName = reader["FirstName"]
+                .ToString();
+                String lastName = reader["LastName"].
+                ToString();
+                String Email = reader["Email"].ToString();
+                String Password = reader["Password"].
+                ToString();
+
+                list.Add(new UserC(id, firstName,
+                lastName, Email, Password));
+            }
+
+            return list;
+        }
+
+    }
+}
+
+\end{lstlisting}
